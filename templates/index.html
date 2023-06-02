@@ -1,28 +1,9 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>GPS Coordinates</title>
-  </head>
-  <body>
-    <h1>GPS Coordinates</h1>
-    <p id="coordinates">Retrieving coordinates...</p>
-    <form method="post" action="/">
-      <input type="hidden" name="latitude" id="latitude" value="">
-      <input type="hidden" name="longitude" id="longitude" value="">
-      <button type="submit">Submit</button>
-    </form>
-    <script>
-      function getLocation() {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          var latitude = position.coords.latitude;
-          var longitude = position.coords.longitude;
-          document.getElementById('coordinates').textContent = "Latitude: " + latitude + ", Longitude: " + longitude;
-          document.getElementById('latitude').value = latitude;
-          document.getElementById('longitude').value = longitude;
-        });
-      }
-
-      setInterval(getLocation, 2000);
-    </script>
-  </body>
+<head>
+    <title>Live Location Map</title>
+</head>
+<body>
+    {{ map_html|safe }}
+</body>
 </html>
